@@ -52,7 +52,18 @@ export default class TodoList extends Component {
     });
   }
 
-  editTodo(todoId) {}
+  editTodo(todoId) {
+    let newTodos = [...this.state.todos];
+    newTodos.forEach((todo) => {
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed;
+      }
+    });
+
+    this.setState({
+      todos: newTodos,
+    });
+  }
 
   render() {
     return (
@@ -81,7 +92,12 @@ export default class TodoList extends Component {
         <div className="todo-container">
           <ul className="todo-list">
             {this.state.todos.map((todo) => (
-              <Todo {...todo} key={todo.id} onRemove={this.removeTodo} />
+              <Todo
+                {...todo}
+                key={todo.id}
+                onRemove={this.removeTodo}
+                onEdit={this.editTodo}
+              />
             ))}
           </ul>
         </div>

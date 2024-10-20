@@ -5,6 +5,10 @@ export default class Todo extends Component {
   removeHandler(id) {
     this.props.onRemove(id);
   }
+
+  editHandler(id) {
+    this.props.onEdit(id);
+  }
   render() {
     return (
       // 'completed' class for completed todos
@@ -14,7 +18,10 @@ export default class Todo extends Component {
       >
         <li className="todo-item">{this.props.title}</li>
 
-        <button className="check-btn">
+        <button
+          className="check-btn"
+          onClick={this.editHandler.bind(this, this.props.id)}
+        >
           <i className="fas fa-check" aria-hidden="true"></i>
         </button>
 
