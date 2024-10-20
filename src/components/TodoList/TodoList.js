@@ -11,19 +11,48 @@ export default class TodoList extends Component {
       status: "all",
     };
 
-    // this.addTodo = this.addTodo.bind(this)
+    this.addTodo = this.addTodo.bind(this);
     // this.removeTodo = this.removeTodo.bind(this)
     // this.editTodo = this.editTodo.bind(this)
-    // this.todoTitleHandler = this.todoTitleHandler.bind(this)
+    this.todoTitleHandler = this.todoTitleHandler.bind(this);
     // this.statusHandler = this.statusHandler.bind(this)
+  }
+
+  todoTitleHandler(event) {
+    this.setState({
+      todoTitle: event.target.value,
+    });
+  }
+
+  addTodo(event) {
+    event.preventDefault();
+
+    let newTodoObj = {
+      id: this.state.todos.length + 1,
+      title: this.state.todoTitle,
+      completed: false,
+    };
+
+    this.setState((prevState) => {
+      return {
+        todos: [...prevState.todos, newTodoObj],
+        todoTitle: "",
+      };
+    });
   }
 
   render() {
     return (
       <>
         <Header />
-        <form>
-          <input type="text" className="todo-input" maxLength="40" />
+        <form onSubmit={this.addTodo}>
+          <input
+            type="text"
+            className="todo-input"
+            maxLength="40"
+            value={this.state.todoTitle}
+            onChange={this.todoTitleHandler}
+          />
           <button className="todo-button" type="submit">
             <i className="fas fa-plus-square"></i>
           </button>
@@ -38,7 +67,9 @@ export default class TodoList extends Component {
 
         <div className="todo-container">
           <ul className="todo-list">
-            <Todo />
+            {this.state.todos.map((todo) => (
+              <Todo {...todo} key={todo.id} />
+            ))}
           </ul>
         </div>
       </>
