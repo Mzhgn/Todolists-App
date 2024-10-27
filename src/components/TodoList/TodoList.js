@@ -4,12 +4,13 @@ import Todo from "./Todo";
 
 export default function TodoList () {
   
+    const [todos,setTodos]=useState([])
+    const [todoTitle,setTodoTitle]=useState("")
+    const [status,setStatus]=useState("all")
     
-    this.state = {
-      todos: [],
-      todoTitle: "",
-      status: "all",
-    };
+   
+     
+    
 
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
