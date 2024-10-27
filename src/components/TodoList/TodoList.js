@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useState} from "react";
 import Header from "./Header";
 import Todo from "./Todo";
 
-export default class TodoList extends Component {
-  constructor(props) {
-    super(props);
+export default function TodoList () {
+  
+    
     this.state = {
       todos: [],
       todoTitle: "",
@@ -16,7 +16,7 @@ export default class TodoList extends Component {
     this.editTodo = this.editTodo.bind(this);
     this.todoTitleHandler = this.todoTitleHandler.bind(this);
     this.statusHandler = this.statusHandler.bind(this);
-  }
+  
 
   todoTitleHandler(event) {
     this.setState({
@@ -71,7 +71,7 @@ export default class TodoList extends Component {
     });
   }
 
-  render() {
+  
     return (
       <>
         <Header />
@@ -136,5 +136,5 @@ export default class TodoList extends Component {
         </div>
       </>
     );
-  }
+  
 }
