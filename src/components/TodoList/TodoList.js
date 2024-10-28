@@ -12,12 +12,7 @@ export default function TodoList () {
      
     
 
-    this.addTodo = this.addTodo.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
-    this.editTodo = this.editTodo.bind(this);
-    this.todoTitleHandler = this.todoTitleHandler.bind(this);
-    this.statusHandler = this.statusHandler.bind(this);
-  
+    
 
   todoTitleHandler(event) {
     this.setState({
