@@ -8,9 +8,7 @@ export default function TodoList() {
   const [status, setStatus] = useState("all");
 
   const todoTitleHandler = (event) => {
-    this.setState({
-      todoTitle: event.target.value,
-    });
+    setTodoTitle(event.target.value);
   };
 
   const addTodo = (event) => {
