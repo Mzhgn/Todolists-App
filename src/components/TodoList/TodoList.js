@@ -15,7 +15,7 @@ export default function TodoList() {
     event.preventDefault();
 
     let newTodoObj = {
-      id: this.state.todos.length + 1,
+      id: todos.length + 1,
       title: this.state.todoTitle,
       completed: false,
     };
