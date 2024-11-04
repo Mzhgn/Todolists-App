@@ -16,7 +16,7 @@ export default function TodoList() {
 
     let newTodoObj = {
       id: todos.length + 1,
-      title: this.state.todoTitle,
+      title: todoTitle,
       completed: false,
     };
 
@@ -25,6 +25,10 @@ export default function TodoList() {
         todos: [...prevState.todos, newTodoObj],
         todoTitle: "",
       };
+    });
+
+    setTodos((prevState) => {
+      return [...prevState.todos, newTodoObj];
     });
   };
 
