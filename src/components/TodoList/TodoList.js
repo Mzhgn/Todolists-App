@@ -30,21 +30,20 @@ export default function TodoList() {
     setTodos((prevState) => {
       return [...prevState.todos, newTodoObj];
     });
+    setTodoTitle(" ");
   };
 
   const removeTodo = (todoId) => {
     console.log(todoId);
-    let newTodos = this.state.todos.filter((todo) => {
+    let newTodos = todos.filter((todo) => {
       return todo.id !== todoId;
     });
 
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
 
   const editTodo = (todoId) => {
-    let newTodos = [...this.state.todos];
+    let newTodos = [todos];
     newTodos.forEach((todo) => {
       if (todo.id === todoId) {
         todo.completed = !todo.completed;
