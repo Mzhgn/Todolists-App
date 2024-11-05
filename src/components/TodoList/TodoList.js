@@ -43,16 +43,13 @@ export default function TodoList() {
   };
 
   const editTodo = (todoId) => {
-    let newTodos = [todos];
+    let newTodos = [...todos];
     newTodos.forEach((todo) => {
       if (todo.id === todoId) {
         todo.completed = !todo.completed;
       }
     });
-
-    this.setState({
-      todos: newTodos,
-    });
+    setTodos(newTodos);
   };
 
   const statusHandler = (event) => {
