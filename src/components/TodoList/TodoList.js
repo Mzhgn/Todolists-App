@@ -59,23 +59,19 @@ export default function TodoList() {
   return (
     <>
       <Header />
-      <form onSubmit={this.addTodo}>
+      <form onSubmit={addTodo}>
         <input
           type="text"
           className="todo-input"
           maxLength="40"
-          value={this.state.todoTitle}
-          onChange={this.todoTitleHandler}
+          value={state.todoTitle}
+          onChange={todoTitleHandler}
         />
         <button className="todo-button" type="submit">
           <i className="fas fa-plus-square"></i>
         </button>
         <div className="select">
-          <select
-            name="todos"
-            className="filter-todo"
-            onChange={this.statusHandler}
-          >
+          <select name="todos" className="filter-todo" onChange={statusHandler}>
             <option value="all">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
@@ -92,8 +88,8 @@ export default function TodoList() {
                 <Todo
                   {...todo}
                   key={todo.id}
-                  onRemove={this.removeTodo}
-                  onEdit={this.editTodo}
+                  onRemove={removeTodo}
+                  onEdit={editTodo}
                 />
               ))}
           {this.state.status === "completed" &&
@@ -103,8 +99,8 @@ export default function TodoList() {
                 <Todo
                   {...todo}
                   key={todo.id}
-                  onRemove={this.removeTodo}
-                  onEdit={this.editTodo}
+                  onRemove={removeTodo}
+                  onEdit={editTodo}
                 />
               ))}
           {this.state.status === "all" &&
@@ -112,8 +108,8 @@ export default function TodoList() {
               <Todo
                 {...todo}
                 key={todo.id}
-                onRemove={this.removeTodo}
-                onEdit={this.editTodo}
+                onRemove={removeTodo}
+                onEdit={editTodo}
               />
             ))}
         </ul>
