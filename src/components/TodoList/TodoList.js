@@ -21,7 +21,7 @@ export default function TodoList() {
     };
 
     setTodos((prevState) => {
-      return [...prevState.todos, newTodoObj];
+      return [...prevState, newTodoObj];
     });
     setTodoTitle(" ");
   };
@@ -74,8 +74,8 @@ export default function TodoList() {
 
       <div className="todo-container">
         <ul className="todo-list">
-          {this.state.status === "uncompleted" &&
-            this.state.todos
+          {status === "uncompleted" &&
+            todos
               .filter((todo) => !todo.completed)
               .map((todo) => (
                 <Todo
@@ -85,8 +85,8 @@ export default function TodoList() {
                   onEdit={editTodo}
                 />
               ))}
-          {this.state.status === "completed" &&
-            this.state.todos
+          {status === "completed" &&
+            todos
               .filter((todo) => todo.completed)
               .map((todo) => (
                 <Todo
@@ -96,8 +96,8 @@ export default function TodoList() {
                   onEdit={editTodo}
                 />
               ))}
-          {this.state.status === "all" &&
-            this.state.todos.map((todo) => (
+          {status === "all" &&
+            todos.map((todo) => (
               <Todo
                 {...todo}
                 key={todo.id}
