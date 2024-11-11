@@ -20,13 +20,6 @@ export default function TodoList() {
       completed: false,
     };
 
-    this.setState((prevState) => {
-      return {
-        todos: [...prevState.todos, newTodoObj],
-        todoTitle: "",
-      };
-    });
-
     setTodos((prevState) => {
       return [...prevState.todos, newTodoObj];
     });
@@ -64,7 +57,7 @@ export default function TodoList() {
           type="text"
           className="todo-input"
           maxLength="40"
-          value={state.todoTitle}
+          value={todoTitle}
           onChange={todoTitleHandler}
         />
         <button className="todo-button" type="submit">
