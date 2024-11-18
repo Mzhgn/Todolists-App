@@ -18,7 +18,7 @@ export default function Todo(props) {
     >
       <li className="todo-item">{props.title}</li>
 
-      <button className="check-btn" onClick={() => editHandler.bind(props.id)}>
+      <button className="check-btn" onClick={() => editHandler(props.id)}>
         <i className="fas fa-check" aria-hidden="true"></i>
       </button>
 
