@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# ToDo List App
+
+## Description
+
+A simple and intuitive ToDo List application built with React and styled with FontAwesome icons. This app allows users to add, complete, and delete tasks efficiently.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
